@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: test-gogog-gitops
+  description: This is GitOps manifest for test-gogog   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: rhtap/gitops=test-gogog
+    backstage.io/kubernetes-id: test-gogog 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: prietyc123-qe-org/test-gogog-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: prietyc123-qe-org.test-gogog-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:test-gogog
